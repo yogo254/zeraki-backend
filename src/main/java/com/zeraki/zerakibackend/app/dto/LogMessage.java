@@ -1,4 +1,4 @@
-package com.workfleek.pharmacareapplicationservice.dto;
+package com.zeraki.zerakibackend.app.dto;
 
 public enum LogMessage {
     SUCCESS, FAILED
