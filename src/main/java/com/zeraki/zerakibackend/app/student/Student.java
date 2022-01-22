@@ -42,6 +42,9 @@ public class Student implements Serializable {
     private Course courseId;
     @Enumerated
     private Gender gender;
+
+    @Column(name = "keywords")
+    private String keywords;
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date timestamp = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant());
 

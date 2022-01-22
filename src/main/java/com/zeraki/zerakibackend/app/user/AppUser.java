@@ -7,12 +7,11 @@ import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.zeraki.zerakibackend.app.dto.AccountType;
-
-import org.springframework.data.annotation.Id;
 
 import lombok.Data;
 
