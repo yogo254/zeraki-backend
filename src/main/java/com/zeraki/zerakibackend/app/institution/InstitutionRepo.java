@@ -5,5 +5,5 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface InstitutionRepo extends JpaRepository<Institution, String> {
-    List<Institution> findByKeywordsContaining(String keywords);
+    List<Institution> findByKeywordsContainingIgnoreCase(String keywords);
 }

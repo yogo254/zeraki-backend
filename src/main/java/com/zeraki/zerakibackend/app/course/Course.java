@@ -11,6 +11,7 @@ import java.util.UUID;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -35,11 +36,10 @@ public class Course implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private String id = UUID.randomUUID().toString();
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
-    @OneToMany(mappedBy = "courseId")
-    private List<Student> studentList;
-    @JoinColumn(name = "institution_id", referencedColumnName = "id")
+
+    @JoinColumn(nullable = false, name = "institutionId", referencedColumnName = "id")
     @ManyToOne
     private Institution institutionId;
     @Column(name = "keywords")
@@ -65,6 +65,11 @@ public class Course implements Serializable {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "" + name + " " + this.institutionId.getKeywords();
     }
 
 }

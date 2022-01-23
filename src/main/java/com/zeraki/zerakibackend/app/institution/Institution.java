@@ -5,25 +5,25 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.List;
+
 import java.util.UUID;
 
 import javax.persistence.Basic;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
 import javax.persistence.Id;
 
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.zeraki.zerakibackend.app.course.Course;
+import lombok.Data;
 
 @Entity
 @Table(name = "institution")
-
+@Data
 public class Institution implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -31,12 +31,12 @@ public class Institution implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private String id = UUID.randomUUID().toString();
+
     @Column(name = "name", unique = true, nullable = false)
     private String name;
     @Column(name = "location")
     private String location;
-    @OneToMany(mappedBy = "institutionId")
-    private List<Course> courses;
+
     @Column(name = "keywords")
     private String keywords;
 
@@ -61,6 +61,11 @@ public class Institution implements Serializable {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "" + location + " " + name;
     }
 
 }

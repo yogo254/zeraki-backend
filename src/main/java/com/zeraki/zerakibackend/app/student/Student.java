@@ -11,7 +11,7 @@ import java.util.UUID;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Enumerated;
+
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,7 +21,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.zeraki.zerakibackend.app.course.Course;
-import com.zeraki.zerakibackend.app.dto.Gender;
 
 import lombok.Data;
 
@@ -40,8 +39,6 @@ public class Student implements Serializable {
     @JoinColumn(name = "course_id", referencedColumnName = "id")
     @ManyToOne
     private Course courseId;
-    @Enumerated
-    private Gender gender;
 
     @Column(name = "keywords")
     private String keywords;
@@ -66,6 +63,11 @@ public class Student implements Serializable {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "" + name + this.courseId.toString();
     }
 
 }
