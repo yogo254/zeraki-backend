@@ -1,0 +1,664 @@
+{
+	"info": {
+		"_postman_id": "3bec3efd-d5f8-4d47-9be8-221a0bd685a8",
+		"name": "zeraki-backend-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin@zeraki.com\"\r\n    , \"password\":\"!zeraki@2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zeraki-url}}/login",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-user-details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{zeraki-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zeraki-url}}/auth/user",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"auth",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh-token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "gng9kfbgnbx0i88mv9q28t3tb9sw2fnjf1epe3ss1f9x85na24",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zeraki-url}}/auth/token",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "institution",
+			"item": [
+				{
+					"name": "get-institutions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{zeraki-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zeraki-url}}/admin/institution",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"institution"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-institution",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"location\": \"Eldoret\",\r\n  \"name\": \"University of Eldoret\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zeraki-url}}/admin/institution",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"institution"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-institution",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id\": \"00de6fc7-8229-40b5-adac-f9ef24e838f6\",\r\n  \"location\": \"Nairobi Kenya\",\r\n  \"name\": \"University Of Nairobi\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zeraki-url}}/admin/institution",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"institution"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-institution",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{zeraki-url}}/admin/institution?id=00de6fc7-8229-40b5-adac-f9ef24e838f6",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"institution"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "00de6fc7-8229-40b5-adac-f9ef24e838f6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sort-institutions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zeraki-url}}/admin/institution/sorted",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"institution",
+								"sorted"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search-institution",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zeraki-url}}/admin/institution/search?search=eldoret",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"institution",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "eldoret"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "course",
+			"item": [
+				{
+					"name": "get-courses-by-institution",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zeraki-url}}/admin/course/institution?institutionId=124e6b1c-8ee6-40e3-af79-3183082e95ab",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"course",
+								"institution"
+							],
+							"query": [
+								{
+									"key": "institutionId",
+									"value": "124e6b1c-8ee6-40e3-af79-3183082e95ab"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"institutionId\": \"124e6b1c-8ee6-40e3-af79-3183082e95ab\",\r\n  \"name\": \"Information Technology\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zeraki-url}}/admin/course",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit-course",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"a7432372-5b91-4a6a-8e47-d110f8601a85\",\r\n  \"institutionId\": \"124e6b1c-8ee6-40e3-af79-3183082e95ab\",\r\n  \"name\": \"Computer Science Edited\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zeraki-url}}/admin/course",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-course",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{zeraki-url}}/admin/course?id=i",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"course"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "i"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-course-sorted",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zeraki-url}}/admin/course/sorted",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"course",
+								"sorted"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search-course",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zeraki-url}}/admin/course/search?search=computer",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"course",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "computer"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "student",
+			"item": [
+				{
+					"name": "get-students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zeraki-url}}/admin/student?page=1",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"student"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"courseId\": \"a7432372-5b91-4a6a-8e47-d110f8601a85\",\r\n\r\n  \"name\": \"Chando Steve Yogo edited\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zeraki-url}}/admin/student",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit-student",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"courseId\": \"8a16a3e9-5ff5-4b2a-a219-f40f7be754a9\",\r\n  \"id\": \"615eb467-0f3c-485a-a583-a0c8764a26c1\",\r\n  \"name\": \"Chando Steve Yogo edited\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{zeraki-url}}/admin/student",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search-student",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zeraki-url}}/admin/student/search?search=maseno",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"student",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "maseno"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{zeraki-url}}/admin/student?id=615eb467-0f3c-485a-a583-a0c8764a26c1",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"student"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "615eb467-0f3c-485a-a583-a0c8764a26c1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-student-by -institution",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zeraki-url}}/admin/student/institution?institutionId=124e6b1c-8ee6-40e3-af79-3183082e95ab&page=0",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"student",
+								"institution"
+							],
+							"query": [
+								{
+									"key": "institutionId",
+									"value": "124e6b1c-8ee6-40e3-af79-3183082e95ab"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-student-by-course",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zeraki-url}}/admin/student/course?page=0&courseId=a7432372-5b91-4a6a-8e47-d110f8601a85",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"student",
+								"course"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "courseId",
+									"value": "a7432372-5b91-4a6a-8e47-d110f8601a85"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-student-sorted",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{zeraki-url}}/admin/student/sorted?page=0",
+							"host": [
+								"{{zeraki-url}}"
+							],
+							"path": [
+								"admin",
+								"student",
+								"sorted"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{zeraki-token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "size",
+			"value": "10",
+			"type": "string"
+		},
+		{
+			"key": "zeraki-token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkB6ZXJha2kuY29tIiwiZXhwIjoxNjQyODQ5NTkxfQ.yquWKYz8MYy54CQ9bqQCOF9EGi9kNsCcpuoPr3dYxirN71RdeaNtLP8LbCaky1yF2H8W65n7Ts58EPR_RVDZyg",
+			"type": "string"
+		},
+		{
+			"key": "zeraki-url",
+			"value": "http://localhost:8085/api",
+			"type": "string"
+		}
+	]
+}

@@ -47,25 +47,25 @@ public class ZerakiBackendApplication implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		if (!userService.existByAuthUsername("admin@zeraki.com")) {
-			AppUser user = new AppUser();
-			user.setAccountType(AccountType.ADMIN);
-			user.setAuthUsername("admin@zeraki.com");
-			user.setEmail("admin@zeraki.com");
-			user.setFirstname("admin");
-			user.setLastname("super");
+		// if (!userService.existByAuthUsername("admin@zeraki.com")) {
+		// AppUser user = new AppUser();
+		// user.setAccountType(AccountType.ADMIN);
+		// user.setAuthUsername("admin@zeraki.com");
+		// user.setEmail("admin@zeraki.com");
+		// user.setFirstname("admin");
+		// user.setLastname("super");
 
-			user.setPassword(authService.hashPassword("!zeraki@2022"));
+		// user.setPassword(authService.hashPassword("!zeraki@2022"));
 
-			user = userService.save(user);
+		// user = userService.save(user);
 
-			UserRole role = new UserRole();
+		// UserRole role = new UserRole();
 
-			role.setUserId(user.getId());
-			role.setRole("ROLE_ADMIN");
-			roleService.addUserRole(role);
+		// role.setUserId(user.getId());
+		// role.setRole("ROLE_ADMIN");
+		// roleService.addUserRole(role);
 
-		}
+		// }
 
 	}
 
