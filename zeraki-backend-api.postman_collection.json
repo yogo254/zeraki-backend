@@ -182,7 +182,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{zeraki-url}}/admin/institution?id=00de6fc7-8229-40b5-adac-f9ef24e838f6",
+							"raw": "{{zeraki-url}}/admin/institution?id=124e6b1c-8ee6-40e3-af79-3183082e95ab",
 							"host": [
 								"{{zeraki-url}}"
 							],
@@ -193,7 +193,7 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "00de6fc7-8229-40b5-adac-f9ef24e838f6"
+									"value": "124e6b1c-8ee6-40e3-af79-3183082e95ab"
 								}
 							]
 						}
@@ -334,7 +334,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{zeraki-url}}/admin/course?id=i",
+							"raw": "{{zeraki-url}}/admin/course?id=a7432372-5b91-4a6a-8e47-d110f8601a85",
 							"host": [
 								"{{zeraki-url}}"
 							],
@@ -345,7 +345,7 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "i"
+									"value": "a7432372-5b91-4a6a-8e47-d110f8601a85"
 								}
 							]
 						}
